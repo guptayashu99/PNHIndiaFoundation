@@ -6,88 +6,122 @@
       phone at 2am after a diagnosis. Generous type, high contrast, calm colour.
    2. Accessibility. WCAG AA contrast, visible focus rings, honest heading order.
    3. Speed. No web fonts, no frameworks — this loads on a slow rural connection.
+
+   ── On the colour scheme ──────────────────────────────────────────────────
+   PNH is a blood disorder, so the palette is built on deep crimson and warm
+   rose rather than the generic clinical teal these sites usually reach for.
+
+   The hard part is signalling "blood" without signalling "danger". Bright
+   saturated red reads as alarm, and a frightened newly diagnosed reader does
+   not need a page shouting at them. So:
+
+   - The brand crimson is DEEP and slightly desaturated (a wine/oxblood, not a
+     pillar-box red). It reads as serious and human rather than as an alert.
+   - Backgrounds are warm cream and pale blush, never stark white. Warmth is
+     what keeps a red palette feeling human instead of clinical.
+   - Saturated alarm colour is RESERVED. Bright amber-red appears only on
+     genuine emergency content — the "seek urgent help" box. If we spent that
+     colour on decoration it would stop working where it actually matters.
+   - Emergency content is also distinguished by TREATMENT (filled background,
+     heavier border, icon) and not by hue alone, so it survives colour-blind
+     vision and greyscale printing.
    ========================================================================== */
 
 :root {
-  /* Brand */
-  --teal-900: #08343c;
-  --teal-800: #0d4a55;
-  --teal-700: #0f5a68;
-  --teal-600: #14727f;
-  --teal-300: #7fc8d3;
-  --teal-100: #d7eef1;
-  --teal-50:  #eef8fa;
+  /* Brand — deep crimson through to blush. The blood reference, kept calm. */
+  --crimson-900: #4a0d1c;
+  --crimson-800: #6d1329;
+  --crimson-700: #8d1935;
+  --crimson-600: #a92243;  /* primary brand */
+  --crimson-500: #c33a5c;
+  --crimson-300: #e79aab;
+  --crimson-200: #f2c3ce;
+  --crimson-100: #f9dde4;
+  --crimson-50:  #fdeef2;
 
-  --amber-700: #9a4f10;
-  --amber-600: #c2681a;
-  --amber-500: #e08c30;
-  --amber-100: #fbe8d1;
+  /* Alarm — reserved for genuine emergencies and unfinished-content flags. */
+  --alarm-800: #8a3d0c;
+  --alarm-700: #a94c10;
+  --alarm-600: #c9611a;
+  --alarm-500: #e3872f;
+  --alarm-200: #f7d9b4;
+  --alarm-100: #fceedc;
 
-  /* Neutrals */
-  --ink-900: #101a20;
-  --ink-700: #2b3b44;
-  --ink-500: #566973;
-  --ink-300: #93a5ad;
-  --ink-200: #cbd6db;
-  --ink-100: #e4ecef;
-  --ink-50:  #f4f8f9;
+  /* Neutrals — warmed with a plum tint so they sit with the crimson. */
+  --ink-900: #24141a;
+  --ink-700: #453036;
+  --ink-500: #6e565d;
+  --ink-300: #a08d93;
+  --ink-200: #d6c6ca;
+  --ink-100: #ece0e3;
+  --ink-50:  #f8f1f2;
+  --cream:   #fffcfb;
   --white:   #ffffff;
 
   /* Semantic — light theme */
-  --bg: var(--white);
+  --bg: var(--cream);
   --bg-muted: var(--ink-50);
-  --bg-brand-soft: var(--teal-50);
+  --bg-brand-soft: var(--crimson-50);
   --surface: var(--white);
   --border: var(--ink-100);
   --border-strong: var(--ink-200);
 
   --text: var(--ink-900);
   --text-muted: var(--ink-500);
-  --text-on-brand: var(--white);
+  --text-on-brand: #ffffff;
 
-  --brand: var(--teal-700);
-  --brand-strong: var(--teal-800);
-  --brand-ink: var(--teal-900);
-  --accent: var(--amber-600);
-  --accent-strong: var(--amber-700);
+  --brand: var(--crimson-600);
+  --brand-strong: var(--crimson-800);
+  --brand-ink: var(--crimson-900);
+  --accent: var(--alarm-600);
+  --accent-strong: var(--alarm-800);
 
-  --focus: var(--amber-500);
+  /* Warm orange rather than crimson, so the focus ring never disappears
+     against a brand-coloured button. */
+  --focus: var(--alarm-500);
 
-  /* Shape + depth */
-  --radius: 10px;
-  --radius-lg: 16px;
-  --shadow-sm: 0 1px 2px rgb(16 26 32 / 0.06), 0 1px 3px rgb(16 26 32 / 0.05);
-  --shadow-md: 0 4px 12px rgb(16 26 32 / 0.07), 0 2px 4px rgb(16 26 32 / 0.04);
+  /* Shape + depth — softened. Rounder corners read as friendlier, and this
+     audience benefits from a page that feels approachable rather than sharp. */
+  --radius: 12px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 1px 2px rgb(74 13 28 / 0.05), 0 2px 6px rgb(74 13 28 / 0.05);
+  --shadow-md: 0 4px 14px rgb(74 13 28 / 0.08), 0 2px 6px rgb(74 13 28 / 0.05);
 
   /* Rhythm */
   --measure: 68ch;
   --container: 1120px;
   --gutter: clamp(1rem, 4vw, 2.5rem);
+
+  /* Minimum comfortable tap target. */
+  --tap: 44px;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #0b1418;
-    --bg-muted: #101f25;
-    --bg-brand-soft: #0d262d;
-    --surface: #12222a;
-    --border: #1e343d;
-    --border-strong: #2b4753;
+    --bg: #170f12;
+    --bg-muted: #1e1419;
+    --bg-brand-soft: #2a1119;
+    --surface: #241820;
+    --border: #3a262d;
+    --border-strong: #503741;
 
-    --text: #e8f1f3;
-    --text-muted: #9db0b8;
-    --text-on-brand: #f2fbfc;
+    --text: #f6eaed;
+    --text-muted: #c0a5ac;
+    --text-on-brand: #2c0a14;
 
-    --brand: var(--teal-300);
-    --brand-strong: #a5dde5;
-    --brand-ink: #d7eef1;
-    --accent: #f0a850;
-    --accent-strong: #f7c37e;
+    /* Deep crimson has nowhere to go on a dark background — it turns to mud.
+       The scale inverts to blush, which keeps the blood reference legible. */
+    --brand: var(--crimson-300);
+    --brand-strong: var(--crimson-200);
+    --brand-ink: var(--crimson-100);
+    --accent: var(--alarm-500);
+    --accent-strong: #f3a75c;
 
-    --focus: #f0a850;
+    --focus: var(--alarm-500);
 
-    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.4);
-    --shadow-md: 0 4px 14px rgb(0 0 0 / 0.45);
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / 0.45);
+    --shadow-md: 0 4px 14px rgb(0 0 0 / 0.5);
   }
 }
 
@@ -119,8 +153,8 @@ body {
   color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-  font-size: 1.0625rem;      /* 17px — deliberately larger than the 16px default */
-  line-height: 1.65;
+  font-size: 1.09375rem;     /* 17.5px — deliberately larger than the 16px default */
+  line-height: 1.7;          /* roomy: easier on tired eyes and small screens */
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   display: flex;
@@ -236,8 +270,9 @@ abbr[title] {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  padding: 0.72rem 1.35rem;
-  border-radius: var(--radius);
+  min-height: var(--tap);
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-pill);
   border: 1.5px solid transparent;
   font-weight: 650;
   font-size: 1rem;
@@ -258,10 +293,8 @@ abbr[title] {
   color: var(--text-on-brand);
 }
 
-@media (prefers-color-scheme: dark) {
-  .btn--primary { color: var(--teal-900); }
-  .btn--primary:hover { color: var(--teal-900); }
-}
+/* No dark-mode override needed: --text-on-brand already flips to a deep
+   crimson-black against the blush brand colour used on dark backgrounds. */
 
 .btn--secondary {
   background: transparent;
@@ -297,18 +330,39 @@ abbr[title] {
   border-color: var(--border-strong);
 }
 
-/* A high-visibility entry point for newly diagnosed visitors. */
+/* Pulled-out passages. Brand-coloured by default — the alarm palette is
+   reserved for `.callout--alert` and `.urgent` so it keeps its meaning. */
 .callout {
   border: 1px solid var(--border-strong);
-  border-left: 5px solid var(--accent);
+  border-left: 5px solid var(--brand);
   background: var(--surface);
   border-radius: var(--radius);
-  padding: 1.25rem 1.4rem;
+  padding: 1.35rem 1.5rem;
 }
 .callout > :last-child { margin-bottom: 0; }
 .callout h3 { margin-top: 0; }
 
+/* Retained as an explicit alias so the intent reads clearly in templates. */
 .callout--brand { border-left-color: var(--brand); }
+
+/* Safety-critical content. Distinguished by fill and weight as well as hue,
+   so it still reads as different in greyscale or with colour-blind vision. */
+.callout--alert {
+  border-color: var(--alarm-500);
+  border-left-width: 6px;
+  border-left-color: var(--alarm-600);
+  background: var(--alarm-100);
+}
+.callout--alert h3 { color: var(--alarm-800); }
+
+@media (prefers-color-scheme: dark) {
+  .callout--alert {
+    background: #2e1d0e;
+    border-color: #7a4a18;
+    border-left-color: var(--alarm-500);
+  }
+  .callout--alert h3 { color: var(--alarm-500); }
+}
 
 /* Medical/legal disclaimers — quieter than a callout, still clearly set apart. */
 .disclaimer {
@@ -328,9 +382,9 @@ abbr[title] {
   display: block;
   font-size: 0.88rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  color: var(--amber-700);
-  background: var(--amber-100);
-  border: 1px dashed var(--amber-600);
+  color: var(--alarm-800);
+  background: var(--alarm-100);
+  border: 1px dashed var(--alarm-600);
   border-radius: 6px;
   padding: 0.6rem 0.8rem;
   margin: 0.75rem 0;

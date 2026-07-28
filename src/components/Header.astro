@@ -112,23 +112,27 @@ const navLinks = [
   }
 
   .nav-list a:not(.btn) {
-    display: block;
-    padding: 0.5rem 0.7rem;
-    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    min-height: var(--tap);
+    padding: 0.5rem 0.8rem;
+    border-radius: var(--radius-pill);
     color: var(--text-muted);
     text-decoration: none;
     font-size: 0.95rem;
     font-weight: 550;
+    transition: color 0.15s ease, background-color 0.15s ease;
   }
 
   .nav-list a:not(.btn):hover {
-    color: var(--brand);
+    color: var(--brand-strong);
     background: var(--bg-brand-soft);
   }
 
   .nav-list a[aria-current='page'] {
     color: var(--brand);
     font-weight: 700;
+    background: var(--bg-brand-soft);
   }
 
   .nav-cta { margin-left: 0.5rem; }
@@ -137,11 +141,17 @@ const navLinks = [
   .nav-toggle {
     display: none;
     background: transparent;
-    border: 1px solid var(--border-strong);
+    border: 1.5px solid var(--border-strong);
     border-radius: var(--radius);
+    min-width: var(--tap);
+    min-height: var(--tap);
     padding: 0.6rem 0.7rem;
     cursor: pointer;
-    color: var(--text);
+    color: var(--brand);
+  }
+  .nav-toggle:hover {
+    border-color: var(--brand);
+    background: var(--bg-brand-soft);
   }
 
   .nav-toggle-bars,

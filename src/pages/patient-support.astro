@@ -292,17 +292,52 @@ const faqs = [
 </Base>
 
 <style>
+  /* The single most important element on the site. It gets the strongest
+     treatment available — filled background, heavy left rule, and a glyph —
+     so it stands apart from the crimson brand by weight, not just by hue. */
   .urgent {
-    border: 1.5px solid var(--accent);
+    border: 1.5px solid var(--alarm-500);
+    border-left: 7px solid var(--alarm-600);
     border-radius: var(--radius-lg);
-    background: var(--surface);
-    padding: clamp(1.25rem, 3vw, 2rem);
+    background: var(--alarm-100);
+    padding: clamp(1.35rem, 3vw, 2rem);
     max-width: var(--measure);
+    box-shadow: var(--shadow-sm);
   }
   .urgent h2 {
     margin-top: 0;
     font-size: clamp(1.3rem, 1.15rem + 0.7vw, 1.6rem);
-    color: var(--accent-strong);
+    color: var(--alarm-800);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+  .urgent h2::before {
+    content: '!';
+    flex: none;
+    width: 1.7rem;
+    height: 1.7rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    /* alarm-700, not -600: white on -600 is only 4.03:1, below AA. */
+    background: var(--alarm-700);
+    color: #fff;
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1;
+  }
+  .urgent strong { color: var(--alarm-800); }
+
+  @media (prefers-color-scheme: dark) {
+    .urgent {
+      background: #2e1d0e;
+      border-color: #7a4a18;
+      border-left-color: var(--alarm-500);
+    }
+    .urgent h2,
+    .urgent strong { color: var(--alarm-500); }
+    .urgent h2::before { background: var(--alarm-500); color: #2b1a08; }
   }
   .urgent ul { padding-left: 1.3em; }
   .urgent li { margin-bottom: 0.4em; }
