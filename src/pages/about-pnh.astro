@@ -1,17 +1,18 @@
 ---
 import Base from '../layouts/Base.astro';
 import PageHeader from '../components/PageHeader.astro';
+import SourceList from '../components/SourceList.astro';
 import { url } from '../lib/url';
 
 const description =
-  'A plain-language explanation of Paroxysmal Nocturnal Haemoglobinuria (PNH): what causes it, its symptoms, how it is diagnosed with flow cytometry, and how it is treated.';
+  'A plain-language explanation of Paroxysmal Nocturnal Haemoglobinuria (PNH): what causes it, its symptoms, how it is diagnosed by flow cytometry, how it is treated, and what access to treatment looks like in India.';
 ---
 
 <Base title="What is PNH?" description={description}>
   <PageHeader
     eyebrow="Understanding the condition"
     title="What is PNH?"
-    lede="Paroxysmal Nocturnal Haemoglobinuria is a rare, acquired blood disorder. This page explains it in ordinary language — what goes wrong, what it feels like, how it is confirmed, and what can be done about it."
+    lede="Paroxysmal Nocturnal Haemoglobinuria is a rare, acquired blood disorder. This page explains it in ordinary language — what goes wrong, what it feels like, how it is confirmed, what can be done about it, and what getting treated actually involves in India."
   />
 
   <section class="section">
@@ -20,9 +21,10 @@ const description =
         <div class="disclaimer" style="margin-bottom: 2.5rem;">
           <p>
             <strong>This is general information, not medical advice.</strong>
-            PNH affects different people very differently. Nothing here should
-            be used to make decisions about your own care — bring your questions
-            to a haematologist who knows your case.
+            PNH affects different people very differently. Nothing here should be
+            used to make decisions about your own care — bring your questions to a
+            haematologist who knows your case. Sources for the clinical and policy
+            statements on this page are listed at the bottom.
           </p>
         </div>
 
@@ -47,23 +49,26 @@ const description =
           <dt>Haemoglobinuria</dt>
           <dd>
             Haemoglobin — the oxygen-carrying pigment released when red blood
-            cells break apart — appearing in the urine, turning it tea-,
-            cola- or red-coloured.
+            cells break apart — appearing in the urine, turning it tea-, cola- or
+            red-coloured.
           </dd>
         </dl>
         <p>
           So: a condition in which red blood cells break down, releasing
-          haemoglobin into the urine. Importantly, not every person with PNH
-          ever sees dark urine. Its absence does not rule PNH out.
+          haemoglobin into the urine. But only about
+          <strong>30% of patients ever have visible haemoglobinuria</strong>.
+          The majority never see dark urine at all, and its absence does not
+          begin to rule PNH out. This single fact is responsible for a great many
+          missed diagnoses.
         </p>
 
         <h2>What actually goes wrong</h2>
         <p>
           Blood cells are made by stem cells in the bone marrow. In PNH, one of
-          those stem cells acquires a change in a gene called <em>PIGA</em>.
-          This is a <strong>somatic</strong> mutation — it happens in a single
-          cell during a person's life. It is not inherited from your parents and
-          you cannot pass it to your children.
+          those stem cells acquires a change in a gene called <em>PIGA</em>. This
+          is a <strong>somatic</strong> mutation — it happens in a single cell
+          during a person's life. It is not inherited from your parents and you
+          cannot pass it to your children.
         </p>
         <p>
           That faulty stem cell copies itself, producing a population of blood
@@ -71,14 +76,12 @@ const description =
           proteins onto the cell surface. Two of those missing proteins,
           <strong>CD55</strong> and <strong>CD59</strong>, are the important
           ones. Their job is to hold back the <strong>complement system</strong>
-          — an arm of the immune system that destroys bacteria and damaged
-          cells.
+          — an arm of the immune system that destroys bacteria and damaged cells.
         </p>
         <p>
-          Without that brake, complement attacks the person's own red blood
-          cells and bursts them. This is called <strong>intravascular
-          haemolysis</strong>, and nearly everything else about PNH follows from
-          it.
+          Without that brake, complement attacks the person's own red blood cells
+          and bursts them. This is called <strong>intravascular haemolysis</strong>,
+          and nearly everything else about PNH follows from it.
         </p>
 
         <div class="callout callout--brand">
@@ -86,23 +89,51 @@ const description =
             A useful way to picture it: the complement system is a security
             system that destroys anything without the right ID badge. In PNH,
             some of your own red blood cells are made without a badge. The
-            security system is working exactly as designed — it just cannot
-            tell that these cells belong to you.
+            security system is working exactly as designed — it just cannot tell
+            that these cells belong to you.
           </p>
         </div>
 
-        <h2>Symptoms</h2>
+        <h2>How common is it?</h2>
         <p>
-          PNH varies enormously between individuals. Some people have mild
-          disease found incidentally; others are seriously unwell. Common
-          features include:
+          PNH is rare by any definition. Reported figures vary with how
+          populations are screened, but broadly:
         </p>
         <ul>
           <li>
-            <strong>Fatigue</strong> — usually the dominant symptom, and often
-            out of proportion to the degree of anaemia. Many patients describe
-            it as the hardest part of the condition to live with, and the hardest
-            to explain to other people.
+            <strong>Roughly 1–2 new diagnoses per million people per year</strong>,
+            with an estimated prevalence of around <strong>15–16 per million</strong>.
+          </li>
+          <li>
+            It is reported <strong>more frequently across Asia</strong> — including
+            Japan, Korea and China — than in Europe or North America.
+          </li>
+          <li>
+            The <strong>median age of onset is in the thirties</strong>, though it
+            occurs at any age, and it affects men and women about equally.
+          </li>
+        </ul>
+        <p>
+          India has no national PNH registry, so nobody knows how many people
+          here are living with it. Applying international prevalence estimates to
+          India's population suggests a number in the <em>thousands</em> — while
+          the number actually diagnosed and treated is a small fraction of that.
+          Closing that gap is a large part of why this Foundation exists.
+        </p>
+
+        <h2>Symptoms</h2>
+        <p>
+          PNH varies enormously between individuals. Only about a third of people
+          found to have a PNH clone have "classic" PNH with significant
+          haemolysis; people with small clones — generally under 30% — are often
+          entirely without symptoms. Common features include:
+        </p>
+        <ul>
+          <li>
+            <strong>Fatigue</strong> — usually the dominant symptom, and often out
+            of proportion to the degree of anaemia. Many patients describe it as
+            the hardest part of the condition to live with, and the hardest to
+            explain to other people.
           </li>
           <li>
             <strong>Anaemia</strong> — breathlessness, pallor, palpitations,
@@ -110,22 +141,22 @@ const description =
           </li>
           <li>
             <strong>Dark urine</strong> — most noticeable in the morning, and
-            not present in everyone.
+            present in only about 30% of patients.
           </li>
           <li>
             <strong>Blood clots (thrombosis)</strong> — the most serious
             complication of PNH, and historically its leading cause of death.
-            Clots can form in unusual places, including veins in the abdomen and
-            the brain. Sudden severe abdominal pain, a swollen painful leg,
-            chest pain or breathlessness need <strong>urgent</strong> medical
-            attention.
+            Clots can form in unusual places, including the veins draining the
+            abdomen and the brain. Sudden severe abdominal pain, a swollen painful
+            leg, chest pain or breathlessness need <strong>urgent</strong>
+            medical attention.
           </li>
           <li>
             <strong>Abdominal pain, difficulty swallowing, and erectile
-            dysfunction</strong> — these are caused by smooth muscle spasm, a
-            knock-on effect of free haemoglobin mopping up nitric oxide in the
-            blood. They are genuine PNH symptoms and worth raising with your
-            doctor even though they can be embarrassing to bring up.
+            dysfunction</strong> — caused by smooth muscle spasm, a knock-on
+            effect of free haemoglobin mopping up nitric oxide in the blood. These
+            are genuine PNH symptoms and worth raising with your doctor even
+            though they can be embarrassing to bring up.
           </li>
           <li>
             <strong>Kidney problems</strong> and <strong>raised pressure in the
@@ -135,20 +166,29 @@ const description =
 
         <h2>PNH, aplastic anaemia and bone marrow failure</h2>
         <p>
-          PNH is closely linked to <strong>aplastic anaemia</strong>, a
-          condition in which the bone marrow fails to produce enough blood
-          cells. A significant proportion of people with aplastic anaemia carry
-          a PNH clone, and some people with PNH go on to develop marrow failure.
-          Because of this, anyone diagnosed with aplastic anaemia or an
-          unexplained low blood count should be tested for PNH — and people with
-          PNH are usually monitored for marrow problems.
+          PNH is closely linked to <strong>aplastic anaemia</strong>, a condition
+          in which the bone marrow fails to produce enough blood cells. Around
+          <strong>half of all people with acquired aplastic anaemia have a
+          detectable PNH clone</strong>, and classic PNH can evolve out of
+          aplastic anaemia over time.
+        </p>
+        <p>
+          Because of this, anyone with aplastic anaemia or unexplained low blood
+          counts should be tested for PNH, and people with aplastic anaemia are
+          generally re-screened annually. This connection matters practically in
+          India, where aplastic anaemia is comparatively well recognised while PNH
+          is not — the aplastic anaemia diagnosis is often the door through which
+          a PNH diagnosis eventually arrives.
         </p>
 
         <h2>Why diagnosis is so often delayed</h2>
         <p>
-          Delays of months or years between first symptoms and a confirmed
-          diagnosis are common, and this is one of the main things we work to
-          change. The reasons are structural, not anyone's fault:
+          Delays of years between first symptoms and a confirmed diagnosis are
+          common. One Indian case series found a
+          <strong>mean delay of 3.7 years</strong> from symptom onset, with
+          patients labelled along the way with iron-deficiency anaemia, haemolytic
+          anaemia, megaloblastic or refractory anaemia, myelodysplastic syndrome,
+          or simply "haematuria". The reasons are structural, not anyone's fault:
         </p>
         <ul>
           <li>PNH is rare enough that most clinicians never encounter a case.</li>
@@ -157,37 +197,54 @@ const description =
             common and point to many other things first.
           </li>
           <li>
+            Most patients never have the dark urine the disease is named after,
+            so the one memorable clue is usually missing.
+          </li>
+          <li>
             Patients are often treated for iron-deficiency anaemia for a long
             time before anyone asks why the anaemia is not responding.
           </li>
           <li>
-            The confirmatory test is not part of a routine workup; someone has
-            to specifically think of PNH and order it.
+            The confirmatory test is not part of a routine workup; someone has to
+            specifically think of PNH and order it.
           </li>
         </ul>
-        <p>
-          If you have unexplained haemolytic anaemia, an unexplained blood clot
-          in an unusual site, or persistently low blood counts, it is reasonable
-          to ask your doctor directly: <em>"Should I be tested for PNH?"</em>
-        </p>
+
+        <div class="callout">
+          <h3>When PNH testing should be considered</h3>
+          <p>
+            International practice is to test for a PNH clone in anyone with
+            unexplained haemolytic anaemia (particularly with a raised LDH and a
+            negative Coombs test), unexplained cytopenias or aplastic anaemia, or
+            a thrombosis in an unusual site — especially in the veins of the
+            abdomen or brain — without a clear cause.
+          </p>
+          <p>
+            If that describes you, it is entirely reasonable to ask your doctor
+            directly: <em>"Should I be tested for PNH?"</em>
+          </p>
+        </div>
 
         <h2>How PNH is diagnosed</h2>
         <p>
           The definitive test is <strong>high-sensitivity flow cytometry</strong>
           on a sample of peripheral blood. The laboratory examines the surface of
           your blood cells and measures what proportion are missing CD55 and
-          CD59. Testing usually includes a reagent called <abbr title="Fluorescently labelled aerolysin">FLAER</abbr>,
-          which improves accuracy on white blood cells.
+          CD59, usually together with a reagent called
+          <abbr title="Fluorescently labelled aerolysin">FLAER</abbr>, which
+          improves accuracy on white blood cells.
         </p>
         <p>
-          The result is reported as the size of your <strong>PNH clone</strong>
-          — the percentage of your blood cells affected. That number matters: it
-          influences whether you need treatment and how closely you are
-          monitored, and it is usually rechecked over time.
+          Done to international (ICCS/ESCCA) standards, the test can detect clones
+          down to about 0.01% of red cells — extraordinarily sensitive. The result
+          is reported as the size of your <strong>PNH clone</strong>: the
+          percentage of your blood cells affected. That number matters. It
+          influences whether you need treatment and how closely you are monitored,
+          and it is rechecked over time, along with
+          <abbr title="Lactate dehydrogenase — a marker of red cell destruction">LDH</abbr>
+          as a measure of how much haemolysis is occurring.
         </p>
-        <p>
-          Two practical points patients often ask about:
-        </p>
+        <p>Two practical points patients often ask about:</p>
         <ul>
           <li>
             <strong>It is a blood test, not a bone marrow biopsy.</strong> A
@@ -197,48 +254,56 @@ const description =
           <li>
             <strong>Older tests are obsolete.</strong> The Ham test and sucrose
             lysis test have been replaced by flow cytometry, which is far more
-            sensitive.
+            sensitive. If a laboratory offers you one of these, ask about flow
+            cytometry instead.
           </li>
         </ul>
 
         <h2>How PNH is treated</h2>
         <p>
-          Treatment depends on the size of the clone, how much haemolysis is
-          happening, symptoms, and whether there is bone marrow failure
-          alongside. Not everyone with a PNH clone needs drug treatment — some
-          people are monitored rather than treated.
+          Treatment depends on clone size, how much haemolysis is happening,
+          symptoms, clot history, and whether there is bone marrow failure
+          alongside. <strong>Not everyone with a PNH clone needs drug
+          treatment</strong> — people with small clones and little haemolysis are
+          often monitored rather than treated.
         </p>
 
         <h3>Complement inhibitors</h3>
         <p>
-          These are the disease-modifying treatments, and they changed the
-          outlook for PNH fundamentally. They work by blocking the complement
-          system at various points so it can no longer destroy the unprotected
-          red cells. Several classes now exist:
+          These are the disease-modifying treatments, and they changed the outlook
+          for PNH fundamentally. They block the complement system so it can no
+          longer destroy the unprotected red cells. Several classes now exist:
         </p>
         <ul>
           <li>
-            <strong>C5 inhibitors</strong> (eculizumab, ravulizumab, crovalimab)
-            — the longest-established approach, given by infusion or injection.
+            <strong>C5 inhibitors</strong> — eculizumab, ravulizumab and
+            crovalimab. The longest-established approach, blocking complement at a
+            late ("terminal") step. Given by infusion or injection.
           </li>
           <li>
-            <strong>C3 inhibitors</strong> (pegcetacoplan) and
-            <strong>Factor B / Factor D inhibitors</strong> (iptacopan,
-            danicopan) — newer options that act earlier in the complement
-            pathway. Some are taken orally.
+            <strong>Proximal inhibitors</strong> — pegcetacoplan (C3), iptacopan
+            (Factor B) and danicopan (Factor D). These act earlier in the
+            pathway, and can address <em>extravascular</em> haemolysis, a
+            limitation that emerges in some patients on C5 inhibitors alone.
+            Iptacopan and danicopan are taken orally rather than infused.
           </li>
         </ul>
+        <p>
+          Which of these is appropriate — and which are actually obtainable in
+          India — are different questions. The section below covers the second.
+        </p>
 
         <div class="callout">
           <h3>An important safety point</h3>
           <p>
             Blocking complement raises the risk of serious infection,
-            particularly <strong>meningococcal disease</strong>. Anyone starting
-            a complement inhibitor must be vaccinated against meningococcus
-            beforehand, may be given preventive antibiotics, and should be given
-            a patient alert card to carry. If you are on one of these drugs and
-            develop a fever, treat it as urgent and seek medical help
-            immediately — do not wait to see if it settles.
+            particularly <strong>meningococcal disease</strong>. Anyone starting a
+            complement inhibitor should be vaccinated against meningococcus
+            <strong>at least 14 days beforehand</strong>, or started on preventive
+            antibiotics if treatment cannot wait, and should carry a patient alert
+            card. If you are on one of these drugs and develop a fever, treat it
+            as urgent and seek medical help immediately — do not wait to see if it
+            settles.
           </p>
         </div>
 
@@ -246,8 +311,9 @@ const description =
         <p>
           Alongside or instead of complement inhibitors, care may include blood
           transfusions, folic acid and iron supplementation, and anticoagulation
-          to prevent or treat clots. This kind of support matters a great deal
-          for quality of life.
+          to prevent or treat clots. For patients who cannot access complement
+          inhibitors — still the majority in India — this supportive care
+          <em>is</em> the treatment, and it matters a great deal.
         </p>
 
         <h3>Bone marrow transplant</h3>
@@ -255,37 +321,173 @@ const description =
           An allogeneic stem cell transplant is the only treatment that can cure
           PNH, but it carries substantial risks of its own. It is generally
           reserved for people with severe bone marrow failure, or where other
-          treatment is not an option. It is a decision to work through carefully
-          with a transplant centre.
+          treatment is not an option. In India it also carries a particular
+          significance: where complement inhibitors are unaffordable, transplant
+          is sometimes discussed earlier than it would be elsewhere. It is a
+          decision to work through carefully with a transplant centre.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The India-specific section: the reason this site exists -->
+  <section class="section section--muted">
+    <div class="container">
+      <div class="prose">
+        <span class="eyebrow">The part most websites leave out</span>
+        <h2 id="pnh-in-india">PNH in India: what access actually looks like</h2>
+        <p>
+          Almost all PNH information online is written for the United States or
+          Europe, where the treatments described above are broadly available. In
+          India the clinical picture is the same but the access picture is not,
+          and being told about a drug you cannot obtain is its own kind of cruelty.
+          Here is the honest position.
         </p>
 
-        <div class="todo-note">
-          TODO (Foundation): add an India-specific section here covering — which
-          therapies currently have Indian regulatory approval and are actually
-          available; PNH's status under the National Policy for Rare Diseases
-          and the Centres of Excellence network; and any state schemes or
-          patient assistance programmes. Verify all of it with a treating
-          haematologist and cite sources with dates before publishing. Do not
-          publish scheme or eligibility details that have not been checked —
-          patients will act on them.
+        <h3>Eculizumab is now approved in India</h3>
+        <p>
+          In <strong>January 2025</strong>, the Central Drugs Standard Control
+          Organisation (CDSCO) approved eculizumab for import and distribution in
+          India for PNH and atypical haemolytic uraemic syndrome, in both adults
+          and children. It was the
+          <strong>first anti-complement therapy approved in the country</strong>,
+          and it matters: before that, treatment meant named-patient import
+          arrangements or nothing.
+        </p>
+        <p>
+          Approval, however, is not the same as access. Complement inhibitors are
+          among the most expensive medicines in the world, and the cost of
+          sustained treatment remains out of reach for the overwhelming majority
+          of Indian families without structured financial support. Published
+          Indian case series describe cohorts managed
+          <em>entirely without</em> C5 inhibitors — which tells you plainly where
+          things stand.
+        </p>
+
+        <h3>The rare disease policy gap</h3>
+        <p>
+          India's <strong>National Policy for Rare Diseases (NPRD), 2021</strong>
+          provides financial assistance of up to <strong>₹50 lakh per patient</strong>
+          for treatment at a designated <strong>Centre of Excellence</strong>.
+          The network has grown from 8 CoEs to 15, including AIIMS Delhi as
+          coordinating centre, PGIMER Chandigarh, CMC Vellore, AIIMS Bhopal, AIIMS
+          Patna, RIMS Imphal and Assam Medical College, among others.
+        </p>
+
+        <div class="callout" style="border-left-color: var(--accent);">
+          <h3>PNH is not currently on the NPRD list</h3>
+          <p>
+            The policy covers <strong>63 named rare diseases</strong> across its
+            three groups. Reviewing that list as published, <strong>Paroxysmal
+            Nocturnal Haemoglobinuria does not appear on it</strong> — and neither
+            does aplastic anaemia. In practical terms this means PNH patients
+            cannot presently claim the ₹50 lakh grant on the basis of their PNH
+            diagnosis, even though the condition is rare, has a definitive
+            treatment, and carries exactly the lifelong high-cost profile the
+            policy's Group 3 was written to address.
+          </p>
+          <p>
+            <strong>Getting PNH recognised under the NPRD is the single most
+            consequential policy change for patients in India</strong>, and it is
+            a central goal of this Foundation.
+          </p>
+          <p class="verify-note">
+            Verified against the published NPRD disease list on 28 July 2026. The
+            list is revised periodically on the recommendation of the Central
+            Technical Committee for Rare Diseases, so please confirm the current
+            position before relying on it — and
+            <a href={url('/contact')}>tell us</a> if you find it has changed.
+          </p>
         </div>
 
-        <h2>Living with PNH</h2>
-        <p>
-          PNH is a long-term condition, and living well with it involves more
-          than drugs: pacing yourself around fatigue, knowing which symptoms are
-          emergencies, managing work and family expectations, and dealing with
-          the mental weight of a rare diagnosis. Our
-          <a href={url('/patient-support')}>patient support page</a> covers the
-          practical side, and we can put you in touch with others living with
-          the same condition.
-        </p>
+        <h3>What this means for you in practice</h3>
+        <ul>
+          <li>
+            <strong>Get to a centre that has seen PNH before.</strong> The
+            Centres of Excellence and large teaching hospitals concentrate both
+            the diagnostic capability — high-sensitivity flow cytometry with FLAER
+            is not universally available — and the clinical experience.
+          </li>
+          <li>
+            <strong>Ask about every funding route, not just one.</strong>
+            State-level schemes, hospital charity funds, manufacturer patient
+            assistance programmes and CSR-funded support all exist and operate
+            independently of the NPRD. Eligibility varies by state and changes
+            often.
+          </li>
+          <li>
+            <strong>Insist on a properly performed flow cytometry report.</strong>
+            Clone size in both red cells and granulocytes, reported to
+            international standards, is the document everything else depends on.
+            Keep a copy.
+          </li>
+          <li>
+            <strong>Supportive care is real care.</strong> If complement
+            inhibitors are not currently within reach, transfusion support, folic
+            acid, anticoagulation where indicated, and vigilant monitoring for
+            thrombosis remain genuinely effective at protecting life and quality
+            of life.
+          </li>
+        </ul>
 
-        <div class="btn-row">
-          <a href={url('/patient-support')} class="btn btn--primary">Patient support</a>
-          <a href={url('/contact')} class="btn btn--secondary">Ask us a question</a>
+        <div class="todo-note">
+          TODO (Foundation): this section is the site's most valuable asset and
+          the fastest to go stale. Before launch, have a treating haematologist
+          verify it, and re-check at least every six months: (a) whether PNH has
+          been added to the NPRD list; (b) which complement inhibitors beyond
+          eculizumab have since received CDSCO approval; (c) the current CoE list
+          and count; (d) live patient assistance programmes. Update the `checked`
+          dates in src/data/sources.ts whenever you do.
         </div>
       </div>
     </div>
   </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <h2>Living with PNH</h2>
+        <p>
+          PNH is a long-term condition, and living well with it involves more than
+          drugs: pacing yourself around fatigue, knowing which symptoms are
+          emergencies, managing work and family expectations, and dealing with the
+          mental weight of a rare diagnosis. Our
+          <a href={url('/patient-support')}>patient support page</a> covers the
+          practical side, and we can put you in touch with others living with the
+          same condition.
+        </p>
+
+        <div class="btn-row">
+          <a href={url('/patient-support')} class="btn btn--primary">Patient support</a>
+          <a href={url('/resources')} class="btn btn--secondary">Trusted resources</a>
+          <a href={url('/contact')} class="btn btn--secondary">Ask us a question</a>
+        </div>
+
+        <SourceList
+          ids={[
+            'merck',
+            'nord',
+            'iccs',
+            'slr-2026',
+            'cdsco-eculizumab',
+            'nprd',
+            'nprd-list',
+            'coe',
+            'india-cohort',
+            'india-flaer',
+          ]}
+        />
+      </div>
+    </div>
+  </section>
 </Base>
+
+<style>
+  .verify-note {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+    padding-top: 0.85rem;
+    margin-bottom: 0;
+  }
+</style>

@@ -127,35 +127,77 @@ import { site } from '../site';
             <span class="fact-label">Rarity</span>
             <span class="fact-value">~1–2 per million</span>
             <span class="fact-note">
-              new diagnoses per million people each year, worldwide. Most doctors
-              will never see a case.
+              new diagnoses per million people each year, and reported more often
+              across Asia than in the West. Most doctors will never see a case.
             </span>
           </li>
           <li>
-            <span class="fact-label">Cause</span>
-            <span class="fact-value">Acquired, not inherited</span>
+            <span class="fact-label">Typical onset</span>
+            <span class="fact-value">In your thirties</span>
             <span class="fact-note">
-              It develops during a person's lifetime and is not passed from
-              parent to child.
+              The median age of onset, though PNH occurs at any age and affects
+              men and women about equally.
+            </span>
+          </li>
+          <li>
+            <span class="fact-label">The misleading name</span>
+            <span class="fact-value">Only ~30% see dark urine</span>
+            <span class="fact-note">
+              Most patients never have the symptom PNH is named after — a major
+              reason the diagnosis gets missed for years.
             </span>
           </li>
           <li>
             <span class="fact-label">Diagnosis</span>
             <span class="fact-value">A blood test</span>
             <span class="fact-note">
-              High-sensitivity flow cytometry on a blood sample confirms PNH —
-              no bone marrow biopsy is needed for the diagnosis itself.
+              High-sensitivity flow cytometry confirms PNH — no bone marrow
+              biopsy is needed for the diagnosis itself.
             </span>
           </li>
           <li>
-            <span class="fact-label">Outlook</span>
-            <span class="fact-value">Treatable</span>
+            <span class="fact-label">Treatment in India</span>
+            <span class="fact-value">Approved since 2025</span>
             <span class="fact-note">
-              Complement inhibitor therapies have transformed outcomes since the
-              mid-2000s.
+              Eculizumab became the first anti-complement therapy approved in
+              India in January 2025. Affording it remains the real barrier.
             </span>
           </li>
         </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- The headline advocacy issue -->
+  <section class="section section--muted">
+    <div class="container">
+      <div class="campaign">
+        <div class="prose">
+          <span class="eyebrow">What we're campaigning for</span>
+          <h2>PNH is missing from India's rare disease policy</h2>
+          <p>
+            The National Policy for Rare Diseases, 2021 offers up to
+            <strong>₹50 lakh per patient</strong> for treatment at a designated
+            Centre of Excellence. It names 63 rare diseases.
+            <strong>PNH is not one of them.</strong>
+          </p>
+          <p>
+            This is not a minor omission. PNH is rare, it has a definitive
+            treatment, and that treatment is lifelong and expensive — precisely
+            the profile the policy was written to cover. Eculizumab has been
+            approved in India since January 2025, but approval without funding
+            leaves most families exactly where they were.
+          </p>
+          <p>
+            Getting PNH recognised under the NPRD is the single change that would
+            do most for patients in this country.
+          </p>
+          <div class="btn-row">
+            <a href={url('/about-pnh#pnh-in-india')} class="btn btn--secondary">
+              Read the detail
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -239,6 +281,16 @@ import { site } from '../site';
     color: var(--text-muted);
     line-height: 1.5;
   }
+
+  .campaign {
+    border-left: 5px solid var(--accent);
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    box-shadow: var(--shadow-sm);
+  }
+  .campaign .prose > :last-child { margin-bottom: 0; }
+  .campaign .btn-row { margin-bottom: 0; }
 
   .cta-band {
     display: grid;

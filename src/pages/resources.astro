@@ -1,0 +1,211 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { url } from '../lib/url';
+
+const description =
+  'Trusted PNH resources: international patient organisations, the Global PNH Patient Registry, clinical references, and India-specific rare disease policy links.';
+
+const groups = [
+  {
+    heading: 'International patient organisations',
+    intro:
+      'These organisations have decades of accumulated patient experience behind them. Their material is written for patients, kept current, and free.',
+    items: [
+      {
+        name: 'Aplastic Anemia and MDS International Foundation (AAMDSIF)',
+        url: 'https://www.aamds.org/',
+        what: 'The leading nonprofit for PNH, aplastic anaemia and MDS. Plain-language disease information, a peer support network, and regular virtual PNH support groups that anyone can join from India.',
+      },
+      {
+        name: 'PNH Global Alliance',
+        url: 'https://pnhglobalalliance.org/',
+        what: 'An alliance of national PNH patient organisations, founded in 2018, coordinating advocacy and sharing resources internationally. Any patient organisation supporting people with PNH is eligible to join.',
+      },
+      {
+        name: 'Global PNH Patient Registry',
+        url: 'https://www.aamds.org/sponsored-research/global-pnh-patient-registry',
+        what: 'A patient-reported registry run by AAMDSIF with NORD. Because PNH is so rare, registries are how the natural history of the disease gets understood at all — contributing your data is a genuine contribution to research.',
+      },
+      {
+        name: 'National Organization for Rare Disorders (NORD)',
+        url: 'https://rarediseases.org/rare-diseases/paroxysmal-nocturnal-hemoglobinuria/',
+        what: 'A thorough, regularly reviewed overview of PNH — symptoms, causes, diagnosis and current therapies.',
+      },
+    ],
+  },
+  {
+    heading: 'Rare disease policy and support in India',
+    intro:
+      'Where to look for the Indian policy position, designated treatment centres, and organisations working across rare diseases generally.',
+    items: [
+      {
+        name: 'National Portal for Rare Diseases (MoHFW)',
+        url: 'https://rarediseases.mohfw.gov.in/',
+        what: 'The government portal for the National Policy for Rare Diseases. Lists the designated Centres of Excellence and carries the policy documents and crowdfunding provisions.',
+      },
+      {
+        name: 'National Policy for Rare Diseases, 2021 (full text)',
+        what: 'The policy itself, including the disease list at Annexure II and the definitions of Groups 1, 2 and 3. Worth reading directly if you are pursuing funding.',
+        url: 'https://rarediseases.mohfw.gov.in/uploads/Content/1624967837_Final-NPRD-2021.pdf',
+      },
+      {
+        name: 'Organization for Rare Diseases India (ORDI)',
+        url: 'https://ordindia.in/',
+        what: 'A national umbrella organisation for rare disease patients in India. Useful for policy updates and for connecting with the wider Indian rare disease community.',
+      },
+      {
+        name: 'Indian Organization for Rare Diseases (IORD)',
+        url: 'https://www.rarediseases.in/',
+        what: 'Tracks NPRD developments, Centre of Excellence designations and funding changes — often the fastest source when policy shifts.',
+      },
+    ],
+  },
+  {
+    heading: 'Clinical references',
+    intro:
+      'Written for clinicians rather than patients. Included because well-informed patients often want them, and because they are what you can hand to a doctor who has not seen PNH before.',
+    items: [
+      {
+        name: 'Merck Manual — Paroxysmal Nocturnal Hemoglobinuria',
+        url: 'https://www.merckmanuals.com/professional/hematology-and-oncology/anemias-caused-by-hemolysis/paroxysmal-nocturnal-hemoglobinuria-pnh',
+        what: 'A concise, authoritative clinical summary of diagnosis and management.',
+      },
+      {
+        name: 'ICCS/ESCCA consensus guidelines on PNH flow cytometry',
+        url: 'https://onlinelibrary.wiley.com/doi/full/10.1002/cyto.b.21610',
+        what: 'The international standard for how PNH testing should be performed and reported. Useful if you need to ask a laboratory whether its assay meets high-sensitivity standards.',
+      },
+      {
+        name: 'Efficacy and safety of treatments for PNH — systematic review',
+        url: 'https://doi.org/10.3390/jcm15114217',
+        what: 'A current review of the full treatment landscape, including the newer proximal complement inhibitors.',
+      },
+    ],
+  },
+];
+---
+
+<Base title="Resources" description={description}>
+  <PageHeader
+    eyebrow="Where else to look"
+    title="Trusted resources"
+    lede="We would rather point you to good information elsewhere than pretend we are the only source worth reading. Everything below is free to access and kept current by the organisation that publishes it."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <div class="callout callout--brand">
+          <h3>A word on searching for PNH online</h3>
+          <p>
+            Most PNH material online is written for the United States or Europe.
+            The <em>clinical</em> information generally applies to you, but
+            anything about drug availability, insurance, approvals or funding
+            usually does not. When you read that a treatment is "available", check
+            where the page is written for — our
+            <a href={url('/about-pnh')}>India section</a> covers the local
+            position.
+          </p>
+          <p>
+            Be cautious with hospital pages quoting treatment "packages" and
+            prices for rare diseases. They are marketing, not clinical guidance.
+          </p>
+        </div>
+      </div>
+
+      {
+        groups.map((group) => (
+          <div class="resource-group">
+            <div class="prose">
+              <h2>{group.heading}</h2>
+              <p>{group.intro}</p>
+            </div>
+            <ul class="resource-list">
+              {group.items.map((item) => (
+                <li class="card card--link">
+                  <h3>
+                    <a href={item.url} rel="noopener">
+                      {item.name}
+                    </a>
+                  </h3>
+                  <p>{item.what}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+
+      <div class="prose" style="margin-top: 3rem;">
+        <div class="disclaimer">
+          <p>
+            <strong>External links.</strong> We link to these because we think
+            they are useful and trustworthy, but we do not control them and are
+            not responsible for their content. None of it is a substitute for
+            advice from your own haematologist.
+          </p>
+        </div>
+
+        <div class="todo-note">
+          TODO (Foundation): add India-specific entries as they become available —
+          hospitals with confirmed PNH flow cytometry capability, active patient
+          assistance programmes, and any Indian PNH peer group. Consider joining
+          the PNH Global Alliance (contact@pnhga.org); an Indian member
+          organisation would give patients here a voice internationally, and there
+          does not appear to be one yet.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--brand-soft">
+    <div class="container cta-band">
+      <div class="prose">
+        <h2>Know a resource we've missed?</h2>
+        <p>
+          If you have found something genuinely useful — a hospital that tests
+          properly, a scheme that paid out, a group that helped — please tell us
+          so we can pass it on.
+        </p>
+      </div>
+      <div class="btn-row">
+        <a href={url('/contact')} class="btn btn--primary">Tell us about it</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .resource-group { margin-top: 3rem; }
+
+  .resource-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr));
+  }
+
+  .resource-list h3 {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .resource-list p {
+    margin-bottom: 0;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .cta-band {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  @media (min-width: 55rem) {
+    .cta-band { grid-template-columns: 1.6fr auto; }
+    .cta-band .btn-row { margin-top: 0; }
+  }
+</style>

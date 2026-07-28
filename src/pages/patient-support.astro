@@ -22,7 +22,19 @@ const faqs = [
   },
   {
     q: 'Does everyone with PNH need drug treatment?',
-    a: 'No. Some people have a small PNH clone with little haemolysis and few symptoms, and are monitored with regular blood tests rather than treated. The decision depends on clone size, how much red cell destruction is occurring, symptoms, clot history and whether there is bone marrow failure. Ask your haematologist to explain where you sit on that spectrum.',
+    a: 'No. Only about a third of people found to have a PNH clone have "classic" PNH with significant red cell destruction. People with clones below roughly 30% are often free of symptoms altogether and are monitored with regular blood tests rather than treated. The decision depends on clone size, how much haemolysis is occurring, symptoms, clot history and whether there is bone marrow failure alongside. Ask your haematologist to explain where you sit on that spectrum.',
+  },
+  {
+    q: 'My urine is never dark. Can I still have PNH?',
+    a: 'Yes — and this catches out patients and doctors alike. Despite the name, only around 30% of people with PNH ever have visible haemoglobinuria. The majority never see dark urine at all. Its absence does not rule PNH out, and if you have unexplained haemolytic anaemia or unexplained low blood counts, the test is still worth asking for.',
+  },
+  {
+    q: 'I was diagnosed with aplastic anaemia. Should I be tested for PNH?',
+    a: 'Yes. Around half of people with acquired aplastic anaemia have a detectable PNH clone, and classic PNH can develop out of aplastic anaemia over time. Standard practice is to test at diagnosis and re-screen periodically, usually annually. If this has not been done, it is a very reasonable thing to raise with your haematologist.',
+  },
+  {
+    q: 'Can I actually get treatment for PNH in India?',
+    a: 'Partly, and honestly this is the hardest question we are asked. Eculizumab has been approved by CDSCO for use in India since January 2025 — the first anti-complement therapy approved here — so treatment is legally available in a way it was not before. But the cost of lifelong complement inhibition remains beyond most families without structured financial support, and PNH is not currently among the 63 diseases named in the National Policy for Rare Diseases, so the ₹50 lakh government grant does not presently apply on the basis of a PNH diagnosis. Other routes exist and are worth pursuing: state schemes, hospital charity funds, and manufacturer patient assistance programmes. Meanwhile supportive care — transfusions, folic acid, anticoagulation where indicated, and careful monitoring for clots — is real treatment and does protect life and quality of life. Talk to us and we will help you work through what is available to you.',
   },
   {
     q: 'Can I work, travel, and have a normal life?',
@@ -169,6 +181,9 @@ const faqs = [
         <div class="btn-row">
           <a href={url('/about-pnh')} class="btn btn--secondary">
             Background reading on PNH
+          </a>
+          <a href={url('/resources')} class="btn btn--secondary">
+            Trusted resources
           </a>
         </div>
       </div>

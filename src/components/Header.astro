@@ -8,6 +8,7 @@ const current = Astro.url.pathname;
 const navLinks = [
   { label: 'About PNH', href: '/about-pnh' },
   { label: 'Patient Support', href: '/patient-support' },
+  { label: 'Resources', href: '/resources' },
   { label: 'What We Do', href: '/what-we-do' },
   { label: 'About Us', href: '/about-us' },
   { label: 'Contact', href: '/contact' },
@@ -162,8 +163,8 @@ const navLinks = [
   .nav-toggle-bars::before { top: -6px; }
   .nav-toggle-bars::after { top: 6px; }
 
-  /* Collapse to a disclosure menu on narrow screens. */
-  @media (max-width: 62rem) {
+  /* Collapse to a disclosure menu before the six nav links start to crowd. */
+  @media (max-width: 70rem) {
     .nav-toggle { display: block; }
 
     .nav {
