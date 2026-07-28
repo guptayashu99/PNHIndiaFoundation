@@ -1,0 +1,270 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../site';
+import { url } from '../lib/url';
+
+const description =
+  'Contact PNH India Foundation — for patients, families, clinicians, volunteers and media.';
+
+/**
+ * GitHub Pages serves static files only, so a contact form needs a third-party
+ * form backend. Paste an endpoint here to switch the page from "email us" mode
+ * to a working form — nothing else needs to change.
+ *
+ * Formspree (free tier) is the usual choice: create a form at formspree.io and
+ * paste its URL, e.g. 'https://formspree.io/f/xxxxxxxx'.
+ * See DEPLOYMENT.md → "Enabling the contact form".
+ */
+const FORM_ENDPOINT = '';
+
+const hasAddress = !site.address.city.startsWith('TODO');
+---
+
+<Base title="Contact" description={description}>
+  <PageHeader
+    eyebrow="Get in touch"
+    title="Contact us"
+    lede="Whether you are newly diagnosed, caring for someone with PNH, treating patients, or want to help — we would like to hear from you."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-layout">
+        <!-- Primary contact routes -->
+        <div class="prose">
+          <h2>How to reach us</h2>
+
+          <dl class="contact-details">
+            <dt>Email</dt>
+            <dd>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <span class="detail-note">
+                The best way to reach us. We aim to reply {site.responseTime}.
+              </span>
+            </dd>
+
+            <dt>Phone</dt>
+            <dd>
+              <a href={`tel:${site.phone.replace(/\s+/g, '')}`}>{site.phone}</a>
+              <span class="detail-note">
+                <span class="todo-inline">
+                  TODO: publish real hours here, or remove this row from
+                  src/site.ts if there is no phone line yet.
+                </span>
+              </span>
+            </dd>
+
+            {
+              hasAddress && (
+                <>
+                  <dt>Post</dt>
+                  <dd>
+                    <address>
+                      {site.address.line1}<br />
+                      {site.address.line2}<br />
+                      {site.address.city}, {site.address.state} {site.address.pincode}
+                    </address>
+                  </dd>
+                </>
+              )
+            }
+          </dl>
+
+          <div class="callout" style="margin-top: 2rem;">
+            <h3>If this is a medical emergency</h3>
+            <p>
+              Do not contact us — go to your nearest emergency department. We
+              are a patient support organisation and cannot provide urgent
+              medical care or clinical advice. See the
+              <a href={url('/patient-support')}>warning signs</a> that need
+              immediate attention.
+            </p>
+          </div>
+        </div>
+
+        <!-- Form, or the email-first fallback -->
+        <div>
+          {
+            FORM_ENDPOINT ? (
+              <form class="contact-form card" action={FORM_ENDPOINT} method="POST">
+                <h2>Send us a message</h2>
+
+                <div class="field">
+                  <label for="name">Your name</label>
+                  <input type="text" id="name" name="name" required autocomplete="name" />
+                </div>
+
+                <div class="field">
+                  <label for="email">Email address</label>
+                  <input type="email" id="email" name="email" required autocomplete="email" />
+                </div>
+
+                <div class="field">
+                  <label for="reason">I am getting in touch as</label>
+                  <select id="reason" name="reason">
+                    <option>A patient</option>
+                    <option>A family member or caregiver</option>
+                    <option>A clinician or healthcare worker</option>
+                    <option>Someone who would like to help</option>
+                    <option>Media or research</option>
+                    <option>Something else</option>
+                  </select>
+                </div>
+
+                <div class="field">
+                  <label for="message">Message</label>
+                  <textarea id="message" name="message" rows="6" required></textarea>
+                </div>
+
+                {/* Simple honeypot — bots fill hidden fields, people don't. */}
+                <div class="visually-hidden" aria-hidden="true">
+                  <label for="company">Do not fill this in</label>
+                  <input type="text" id="company" name="_gotcha" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <p class="form-privacy">
+                  Please do not include detailed medical records or test results
+                  in this form. If you need to share those, email us and we will
+                  tell you how.
+                </p>
+
+                <button type="submit" class="btn btn--primary">Send message</button>
+              </form>
+            ) : (
+              <div class="card">
+                <h2>Send us a message</h2>
+                <p>
+                  Email is the most reliable way to reach us. Tell us a little
+                  about your situation — whether you are a patient, a family
+                  member, a clinician, or someone who wants to help — and we will
+                  come back to you {site.responseTime}.
+                </p>
+                <p>
+                  Please don't include detailed medical records or test results in
+                  a first email. If we need those, we will tell you how to share
+                  them securely.
+                </p>
+                <div class="btn-row">
+                  <a href={`mailto:${site.email}`} class="btn btn--primary">
+                    Email {site.email}
+                  </a>
+                </div>
+
+                <div class="todo-note">
+                  TODO (Foundation): to replace this with a real contact form,
+                  create a free form at formspree.io and paste the endpoint into
+                  `FORM_ENDPOINT` at the top of src/pages/contact.astro. The
+                  form markup is already written and will appear automatically.
+                  See DEPLOYMENT.md.
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--muted">
+    <div class="container">
+      <div class="prose">
+        <h2>A note on privacy</h2>
+        <p>
+          Health information is sensitive, and a rare disease diagnosis is
+          identifying in a way that common conditions are not. We treat anything
+          you tell us as confidential. We do not share personal details with
+          anyone — including other patients — without asking you first, and we do
+          not publish anyone's story without their explicit consent.
+        </p>
+        <div class="todo-note">
+          TODO (Foundation): add a full privacy policy page before collecting any
+          personal data through a form. India's Digital Personal Data Protection
+          Act, 2023 applies, and health data warrants care regardless. Link it
+          from the footer.
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .contact-layout {
+    display: grid;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    align-items: start;
+  }
+  @media (min-width: 58rem) {
+    .contact-layout { grid-template-columns: 1fr 1fr; }
+  }
+
+  .contact-details dt {
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 1.5rem;
+  }
+  .contact-details dt:first-child { margin-top: 0; }
+
+  .contact-details dd {
+    margin: 0.3rem 0 0;
+    font-size: 1.1rem;
+  }
+
+  .detail-note {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+  }
+
+  .todo-inline {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.82rem;
+    color: var(--amber-700);
+  }
+  @media (prefers-color-scheme: dark) {
+    .todo-inline { color: #ffd9a8; }
+  }
+
+  address { font-style: normal; line-height: 1.6; }
+
+  .contact-form h2 { margin-top: 0; }
+
+  .field { margin-bottom: 1.1rem; }
+
+  .field label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.92rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    font: inherit;
+    font-size: 1rem;
+    color: var(--text);
+    background: var(--bg);
+    border: 1.5px solid var(--border-strong);
+    border-radius: var(--radius);
+  }
+
+  .field textarea { resize: vertical; min-height: 8rem; }
+
+  .field input:focus-visible,
+  .field select:focus-visible,
+  .field textarea:focus-visible {
+    border-color: var(--brand);
+  }
+
+  .form-privacy {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+  }
+</style>

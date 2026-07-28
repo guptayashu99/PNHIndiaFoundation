@@ -1,0 +1,36 @@
+---
+/**
+ * Placeholder brand mark — a stylised red blood cell (the ring is the cell's
+ * pale centre, the notch a nod to the "H" in PNH).
+ *
+ * TODO(branding): replace with the Foundation's real logo. Drop the file in
+ * public/ as logo.svg and swap this component's body for:
+ *   <img src={url('/logo.svg')} alt="" width="40" height="40" />
+ * Keep alt="" — the wordmark next to it already carries the name.
+ */
+interface Props {
+  size?: number;
+}
+const { size = 38 } = Astro.props;
+---
+
+<svg
+  width={size}
+  height={size}
+  viewBox="0 0 40 40"
+  fill="none"
+  aria-hidden="true"
+  focusable="false"
+  class="logo-mark"
+>
+  <circle cx="20" cy="20" r="18" fill="currentColor" opacity="0.12" />
+  <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="2.5" />
+  <circle cx="20" cy="20" r="7.5" stroke="currentColor" stroke-width="2.5" opacity="0.55" />
+</svg>
+
+<style>
+  .logo-mark {
+    color: var(--brand);
+    flex: none;
+  }
+</style>

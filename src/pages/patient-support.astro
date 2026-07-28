@@ -1,0 +1,331 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../site';
+import { url } from '../lib/url';
+
+const description =
+  'Practical support for people newly diagnosed with PNH in India and their families — what to do first, questions to ask your haematologist, warning signs, and how to reach peer support.';
+
+const faqs = [
+  {
+    q: 'Is PNH cancer?',
+    a: 'No. PNH is a disorder of the blood-forming stem cells, but it is not a cancer and it is not treated as one. It is sometimes managed by the same haematology departments that treat blood cancers, which can be confusing and frightening when you first attend an appointment there.',
+  },
+  {
+    q: 'Will my children inherit it?',
+    a: 'No. The genetic change that causes PNH is acquired during a person\'s lifetime in a single stem cell. It is not present in egg or sperm cells and is not passed on to children. There is no need for family genetic testing.',
+  },
+  {
+    q: 'Is PNH contagious?',
+    a: 'No. It cannot be transmitted to anyone else by any route — not by contact, sharing food, or living together.',
+  },
+  {
+    q: 'Does everyone with PNH need drug treatment?',
+    a: 'No. Some people have a small PNH clone with little haemolysis and few symptoms, and are monitored with regular blood tests rather than treated. The decision depends on clone size, how much red cell destruction is occurring, symptoms, clot history and whether there is bone marrow failure. Ask your haematologist to explain where you sit on that spectrum.',
+  },
+  {
+    q: 'Can I work, travel, and have a normal life?',
+    a: 'Many people with PNH work and travel. Fatigue is the most common limiting factor and it is often underestimated by employers and family. Travel needs a little planning — carry your diagnosis details and treatment information, and if you are on a complement inhibitor, carry your patient alert card and know where to get urgent care. Discuss any long trip with your treating team first.',
+  },
+  {
+    q: 'Can women with PNH have children?',
+    a: 'Pregnancy is possible but is considered high-risk in PNH, mainly because of a substantially increased risk of blood clots. It needs planning in advance and joint care between a haematologist and an obstetrician experienced with high-risk pregnancy. If you are considering pregnancy, raise it with your haematologist early rather than after conceiving.',
+  },
+  {
+    q: 'Why am I so tired when my haemoglobin is not that low?',
+    a: 'Fatigue in PNH is often out of proportion to the anaemia. Free haemoglobin released by destroyed red cells depletes nitric oxide in the blood, which contributes to fatigue, pain and other symptoms independently of the haemoglobin level. Your tiredness is real and physiological — it is not you failing to cope.',
+  },
+  {
+    q: 'How often will I need tests?',
+    a: 'This varies by individual. Monitoring typically includes periodic blood counts, markers of haemolysis such as LDH, and repeat flow cytometry to track clone size. Your haematologist will set a schedule based on your situation.',
+  },
+];
+---
+
+<Base title="Patient Support" description={description}>
+  <PageHeader
+    eyebrow="For patients and families"
+    title="Support for people living with PNH"
+    lede="If you or someone you love has just been diagnosed, start here. This page covers the first practical steps, the questions worth asking, and the warning signs that need urgent attention."
+  />
+
+  <!-- Red flags first: the highest-stakes information on the site -->
+  <section class="section section--tight">
+    <div class="container">
+      <div class="urgent">
+        <h2>When to seek urgent medical help</h2>
+        <p>
+          PNH raises the risk of blood clots, and complement inhibitor treatment
+          raises the risk of serious infection. Do not wait to see whether these
+          settle — go to an emergency department:
+        </p>
+        <ul>
+          <li>Sudden severe abdominal pain</li>
+          <li>Chest pain or sudden breathlessness</li>
+          <li>Swelling, pain or redness in a leg or arm</li>
+          <li>Sudden severe headache, confusion, weakness on one side, or a seizure</li>
+          <li>Sudden loss of vision</li>
+          <li>
+            <strong>Fever, if you are taking a complement inhibitor</strong> —
+            treat any fever as an emergency and tell the treating doctor which
+            drug you are on
+          </li>
+        </ul>
+        <p class="urgent-note">
+          Carry your diagnosis details, current medication list and your patient
+          alert card with you. In an emergency, show them to the treating team
+          straight away — most doctors will not have seen PNH before.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- First steps -->
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <h2>The first few weeks</h2>
+        <p>
+          A new PNH diagnosis usually arrives with a great deal of unfamiliar
+          information at once. You do not have to absorb it all immediately.
+          These are the things that genuinely help early on.
+        </p>
+      </div>
+
+      <ol class="steps">
+        <li>
+          <h3>Get your diagnosis in writing</h3>
+          <p>
+            Ask for a copy of your flow cytometry report and recent blood
+            results, and keep them together — paper and a photo on your phone.
+            You will be asked for them repeatedly, sometimes urgently. Knowing
+            your clone size and your recent LDH is genuinely useful.
+          </p>
+        </li>
+        <li>
+          <h3>Make sure you are under a haematologist</h3>
+          <p>
+            PNH should be managed by a haematologist, ideally one at a centre
+            that has seen it before. If you were diagnosed by a general
+            physician, ask for a referral. It is entirely reasonable to seek a
+            second opinion — that is not a criticism of your doctor.
+          </p>
+        </li>
+        <li>
+          <h3>Bring someone to appointments</h3>
+          <p>
+            A second person hears things you will miss, and remembers what was
+            said afterwards. Write your questions down beforehand; appointments
+            move fast and the questions evaporate.
+          </p>
+        </li>
+        <li>
+          <h3>Understand your treatment plan — including "watch and wait"</h3>
+          <p>
+            If you are being monitored rather than treated, ask what is being
+            monitored, how often, and what would trigger a change. "No treatment
+            for now" is a plan, not an absence of one — but you should know what
+            it involves.
+          </p>
+        </li>
+        <li>
+          <h3>Talk to someone who has PNH</h3>
+          <p>
+            Clinical information answers some questions; almost none of the ones
+            about daily life. Peer support fills that gap. We can connect you
+            with other patients and caregivers in India — just
+            <a href={url('/contact')}>get in touch</a>.
+          </p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- Questions to ask -->
+  <section class="section section--muted">
+    <div class="container">
+      <div class="prose">
+        <span class="eyebrow">Take this with you</span>
+        <h2>Questions worth asking your haematologist</h2>
+        <p>
+          You are not being difficult by asking these. A good clinician will
+          welcome them.
+        </p>
+        <ul>
+          <li>What size is my PNH clone, and what does that mean for me?</li>
+          <li>How much haemolysis am I having? What is my LDH?</li>
+          <li>Do I have any evidence of bone marrow failure alongside the PNH?</li>
+          <li>Do I need treatment now? If not, what would change that?</li>
+          <li>What are my treatment options, and what are the trade-offs between them?</li>
+          <li>What is my risk of blood clots, and should I be on anticoagulation?</li>
+          <li>Which vaccinations do I need, and when?</li>
+          <li>How often should I be reviewed, and which tests each time?</li>
+          <li>Which symptoms should make me contact you, and which should send me to emergency?</li>
+          <li>Who do I call out of hours?</li>
+          <li>What will treatment cost, and what support is available for that?</li>
+        </ul>
+
+        <div class="btn-row">
+          <a href={url('/about-pnh')} class="btn btn--secondary">
+            Background reading on PNH
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <h2>Common questions</h2>
+        <p>
+          These are the questions we are asked most often by patients and
+          families in the first months after diagnosis.
+        </p>
+      </div>
+
+      <div class="faq prose" style="margin-top: 1.5rem;">
+        {
+          faqs.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))
+        }
+      </div>
+
+      <div class="prose" style="margin-top: 2.5rem;">
+        <div class="disclaimer">
+          <p>
+            <strong>A note on all of the above.</strong> This is general
+            information written for a wide audience. PNH behaves very differently
+            in different people, and your own answers may differ. Please use this
+            as preparation for a conversation with your haematologist, not as a
+            substitute for one.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Caregivers -->
+  <section class="section section--muted">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="prose">
+          <h2>For caregivers</h2>
+          <p>
+            Caring for someone with PNH is its own kind of hard, and it tends to
+            go unacknowledged. The fatigue you are watching is invisible to
+            everyone else, the condition is one you have to explain repeatedly,
+            and the worry about clots does not really switch off.
+          </p>
+          <p>
+            You are welcome in our peer support network in your own right, not
+            only as someone's relative.
+          </p>
+        </div>
+        <div class="prose">
+          <h2>For clinicians</h2>
+          <p>
+            If you are a haematologist, physician or nurse treating someone with
+            PNH, we are glad to hear from you. We can share patient-facing
+            materials, connect your patient with peer support, and help with the
+            practical navigation that clinics rarely have time for.
+          </p>
+          <p>
+            We are also building a picture of where in India PNH is being
+            diagnosed and treated — if you see these patients, please
+            <a href={url('/contact')}>get in touch</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reach us -->
+  <section class="section section--brand-soft">
+    <div class="container">
+      <div class="prose">
+        <h2>Talk to us</h2>
+        <p>
+          We are a small organisation, so we cannot offer a 24-hour helpline —
+          and we would rather say that plainly than let you wait on a promise we
+          cannot keep. What we can do is answer your questions, point you toward
+          the right kind of specialist, and connect you with other people living
+          with PNH.
+        </p>
+        <p>
+          Email <a href={`mailto:${site.email}`}>{site.email}</a> — we aim to
+          reply {site.responseTime}.
+        </p>
+        <div class="todo-note">
+          TODO (Foundation): confirm the response-time commitment in src/site.ts
+          before launch, and decide whether to publish a phone number or
+          WhatsApp contact. If a medical emergency route is ever added here, be
+          explicit that it is not a substitute for emergency services.
+        </div>
+        <div class="btn-row">
+          <a href={url('/contact')} class="btn btn--primary">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .urgent {
+    border: 1.5px solid var(--accent);
+    border-radius: var(--radius-lg);
+    background: var(--surface);
+    padding: clamp(1.25rem, 3vw, 2rem);
+    max-width: var(--measure);
+  }
+  .urgent h2 {
+    margin-top: 0;
+    font-size: clamp(1.3rem, 1.15rem + 0.7vw, 1.6rem);
+    color: var(--accent-strong);
+  }
+  .urgent ul { padding-left: 1.3em; }
+  .urgent li { margin-bottom: 0.4em; }
+  .urgent-note {
+    margin-bottom: 0;
+    font-size: 0.94rem;
+    color: var(--text-muted);
+  }
+
+  .steps {
+    list-style: none;
+    counter-reset: step;
+    margin: 2rem 0 0;
+    padding: 0;
+    max-width: var(--measure);
+  }
+  .steps > li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 3.25rem;
+    margin-bottom: 1.75rem;
+  }
+  .steps > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 2.25rem;
+    height: 2.25rem;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--bg-brand-soft);
+    border: 1.5px solid var(--brand);
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 1rem;
+  }
+  .steps h3 { margin-top: 0.25rem; margin-bottom: 0.35rem; }
+  .steps p { margin-bottom: 0; }
+</style>

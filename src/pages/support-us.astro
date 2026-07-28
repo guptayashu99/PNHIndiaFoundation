@@ -1,0 +1,144 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../site';
+import { url } from '../lib/url';
+
+const description =
+  'Ways to support PNH India Foundation — share your story, volunteer, partner with us, or contribute to our work supporting PNH patients across India.';
+---
+
+<Base title="Support Us" description={description}>
+  <PageHeader
+    eyebrow="Get involved"
+    title="Support our work"
+    lede="There are people living with undiagnosed or unsupported PNH in India right now. Every one of the things below helps us reach them."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid--2">
+        <div class="card">
+          <h3>Share your story</h3>
+          <p>
+            If you live with PNH or care for someone who does, your experience is
+            the most valuable thing you can give. Patient stories reduce
+            isolation for people who have just been diagnosed, and they carry
+            weight in policy conversations that statistics do not.
+          </p>
+          <p>
+            You choose how much to share and whether to be named. Nothing is
+            published without your explicit consent, and you can withdraw it at
+            any time.
+          </p>
+          <p><a href={url('/contact')}>Tell us your story →</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Volunteer</h3>
+          <p>
+            We are small, and skilled help goes a long way. We are particularly
+            glad to hear from people who can offer translation into Indian
+            languages, design, writing, social media, event organisation, or
+            legal and accounting support.
+          </p>
+          <p>
+            Peer supporters — patients and caregivers willing to talk to newly
+            diagnosed families — are always needed.
+          </p>
+          <p><a href={url('/contact')}>Offer your time →</a></p>
+        </div>
+
+        <div class="card">
+          <h3>For clinicians and hospitals</h3>
+          <p>
+            If you treat PNH patients, we would like to work with you. We can
+            provide patient-facing material for your clinic and connect your
+            patients with peer support.
+          </p>
+          <p>
+            We are also mapping where PNH is being diagnosed and treated across
+            India — a picture that does not currently exist and that patients
+            badly need.
+          </p>
+          <p><a href={url('/contact')}>Work with us →</a></p>
+        </div>
+
+        <div class="card">
+          <h3>Spread the word</h3>
+          <p>
+            Awareness is not a soft outcome for a rare disease — it is the
+            mechanism by which people get diagnosed. Sharing our material with a
+            doctor, a patient group, or your own network genuinely shortens
+            somebody's diagnostic journey.
+          </p>
+          <p>
+            If you know someone with unexplained haemolytic anaemia, suggest
+            they ask about PNH testing.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Donations: information only, no payment gateway -->
+  <section class="section section--muted">
+    <div class="container">
+      <div class="prose">
+        <span class="eyebrow">Financial support</span>
+        <h2>Contributing financially</h2>
+        <p>
+          Contributions fund the practical work: producing patient information,
+          running peer support, reaching patients in places we currently do not,
+          and awareness work with clinicians.
+        </p>
+
+        <div class="callout callout--brand">
+          <h3>We are not accepting online donations yet</h3>
+          <p>
+            We would rather wait until our registration and reporting are fully
+            in place than take money we cannot properly receipt and account for.
+            If you would like to contribute, please
+            <a href={`mailto:${site.email}`}>email us</a> and we will tell you
+            exactly where things stand.
+          </p>
+        </div>
+
+        <div class="todo-note">
+          TODO (Foundation) — before publishing any bank or UPI details, confirm
+          all of the following:
+          <br />• The entity is registered (trust / society / Section 8 company)
+          and has a bank account in the organisation's name.
+          <br />• 12A registration is granted, if you intend to claim income tax
+          exemption.
+          <br />• 80G is granted, if you intend to tell donors their gift is tax
+          deductible. Do not state or imply 80G before the certificate is issued.
+          <br />• FCRA registration is in place <em>before</em> accepting any
+          foreign contribution — including from NRIs holding foreign passports,
+          and including small online payments. Accepting foreign funds without
+          FCRA is a serious offence, so if you later add a payment gateway,
+          restrict it to domestic payments until FCRA is granted.
+          <br />• You have a donation receipt process and a privacy policy for
+          donor data.
+          <br /><br />
+          Once confirmed, replace the callout above with the account details, and
+          update `registration` in src/site.ts so the footer displays them.
+        </div>
+
+        <h3>What we will publish here</h3>
+        <p>
+          When we do open financial contributions, this page will carry the
+          organisation's registration details, bank information, our 80G status,
+          and a clear statement of how funds are used. We will publish annual
+          accounts. You should expect that of any organisation asking you for
+          money, including us.
+        </p>
+
+        <div class="btn-row">
+          <a href={`mailto:${site.email}`} class="btn btn--primary">Email us about supporting</a>
+          <a href={url('/about-us')} class="btn btn--secondary">About the Foundation</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,75 @@
+---
+import { site } from '../site';
+import { url } from '../lib/url';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+  /** Set true on the home page so the title isn't "Home | PNH India Foundation". */
+  isHome?: boolean;
+}
+
+const { title, description = site.description, isHome = false } = Astro.props;
+
+const pageTitle = isHome ? `${site.name} — ${site.tagline}` : `${title} | ${site.name}`;
+const canonical = new URL(Astro.url.pathname, Astro.site ?? 'https://example.org').href;
+
+// Findability matters more than usual here: people search for this at 2am,
+// often having just been handed a diagnosis they've never heard of.
+const orgSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'NGO',
+  name: site.name,
+  alternateName: 'PNH India',
+  description: site.description,
+  email: site.email,
+  areaServed: 'IN',
+  knowsAbout: [
+    'Paroxysmal Nocturnal Hemoglobinuria',
+    'Rare disease patient advocacy',
+    'Haematology patient support',
+  ],
+};
+---
+
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="icon" type="image/svg+xml" href={url('/favicon.svg')} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content="en_IN" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    {/* TODO(social image): add a 1200×630 image at public/og-image.png, then
+        uncomment the two tags below so shared links show a preview card. */}
+    {/* <meta property="og:image" content={new URL(url('/og-image.png'), Astro.site).href} /> */}
+    {/* <meta name="twitter:image" content={new URL(url('/og-image.png'), Astro.site).href} /> */}
+
+    <meta name="theme-color" content="#0f5a68" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b1418" media="(prefers-color-scheme: dark)" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(orgSchema)} />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <Header />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

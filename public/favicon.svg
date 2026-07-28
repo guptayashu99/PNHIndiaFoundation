@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- TODO(branding): replace with the Foundation's own icon once the logo exists. -->
+  <circle cx="20" cy="20" r="19" fill="#0f5a68"/>
+  <circle cx="20" cy="20" r="12.5" fill="none" stroke="#ffffff" stroke-width="3"/>
+  <circle cx="20" cy="20" r="5" fill="#ffffff" opacity="0.55"/>
+</svg>

@@ -1,0 +1,180 @@
+---
+import { site } from '../site';
+import { url } from '../lib/url';
+
+const year = new Date().getFullYear();
+
+// Only render social links that have actually been filled in.
+const socials = (
+  [
+    ['Facebook', site.social.facebook],
+    ['Instagram', site.social.instagram],
+    ['X', site.social.x],
+    ['LinkedIn', site.social.linkedin],
+    ['YouTube', site.social.youtube],
+    ['WhatsApp', site.social.whatsapp],
+  ] as const
+).filter(([, href]) => href.length > 0);
+
+const explore = [
+  { label: 'About PNH', href: '/about-pnh' },
+  { label: 'Patient Support', href: '/patient-support' },
+  { label: 'What We Do', href: '/what-we-do' },
+];
+
+const organisation = [
+  { label: 'About Us', href: '/about-us' },
+  { label: 'Support Us', href: '/support-us' },
+  { label: 'Contact', href: '/contact' },
+];
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-about">
+        <p class="footer-name">{site.name}</p>
+        <p class="footer-tagline">{site.tagline}</p>
+
+        {
+          socials.length > 0 && (
+            <ul class="social-list">
+              {socials.map(([label, href]) => (
+                <li>
+                  <a href={href} rel="me noopener">
+                    {label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )
+        }
+      </div>
+
+      <nav class="footer-nav" aria-label="Explore">
+        <h2>Explore</h2>
+        <ul>
+          {explore.map((l) => <li><a href={url(l.href)}>{l.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <nav class="footer-nav" aria-label="Organisation">
+        <h2>Organisation</h2>
+        <ul>
+          {organisation.map((l) => <li><a href={url(l.href)}>{l.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <div class="footer-contact">
+        <h2>Get in touch</h2>
+        <ul>
+          <li><a href={`mailto:${site.email}`}>{site.email}</a></li>
+          <li><a href={`tel:${site.phone.replace(/\s+/g, '')}`}>{site.phone}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="footer-disclaimer">
+      The information on this website is provided for general awareness and
+      support. It is not medical advice and does not replace consultation with a
+      qualified haematologist. Always discuss your own diagnosis, tests and
+      treatment with your treating doctor.
+    </p>
+
+    <div class="footer-legal">
+      <p>&copy; {year} {site.name}. All rights reserved.</p>
+      {
+        site.registration.entityType && (
+          <p>
+            {site.registration.entityType}
+            {site.registration.registrationNumber &&
+              ` · Reg. No. ${site.registration.registrationNumber}`}
+          </p>
+        )
+      }
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--bg-muted);
+    border-top: 1px solid var(--border);
+    padding-block: clamp(2.5rem, 5vw, 3.5rem) 2rem;
+    margin-top: auto;
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    gap: 2rem clamp(1.5rem, 4vw, 3rem);
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr));
+  }
+
+  .footer-about { grid-column: span 1; }
+  @media (min-width: 60rem) {
+    .footer-grid { grid-template-columns: 2fr 1fr 1fr 1.4fr; }
+  }
+
+  .footer-name {
+    font-weight: 700;
+    font-size: 1.05rem;
+    color: var(--text);
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-tagline {
+    color: var(--text-muted);
+    max-width: 34ch;
+    margin-bottom: 1rem;
+  }
+
+  .site-footer h2 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 0.85rem;
+  }
+
+  .site-footer ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .site-footer li + li { margin-top: 0.5rem; }
+
+  .site-footer a {
+    color: var(--text);
+    text-decoration: none;
+  }
+  .site-footer a:hover {
+    color: var(--brand);
+    text-decoration: underline;
+  }
+
+  .social-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1rem;
+  }
+  .social-list li + li { margin-top: 0; }
+
+  .footer-disclaimer {
+    margin: 2.5rem 0 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    max-width: 80ch;
+  }
+
+  .footer-legal {
+    margin-top: 1.25rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+  }
+  .footer-legal p { margin: 0 0 0.25rem; }
+</style>

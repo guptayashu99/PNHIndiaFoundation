@@ -1,0 +1,185 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { site } from '../site';
+import { url } from '../lib/url';
+
+const description =
+  'Who we are: PNH India Foundation is a patient advocacy organisation supporting people living with Paroxysmal Nocturnal Haemoglobinuria across India.';
+
+// TODO(Foundation): replace with real people. Delete this array entirely if you
+// would rather not list individuals yet — the section only renders when it has
+// entries.
+const team: { name: string; role: string; bio: string }[] = [];
+---
+
+<Base title="About Us" description={description}>
+  <PageHeader
+    eyebrow="Who we are"
+    title="About PNH India Foundation"
+    lede="We are a patient advocacy organisation working for and alongside people living with Paroxysmal Nocturnal Haemoglobinuria in India."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="prose">
+        <h2>Why we exist</h2>
+        <p>
+          PNH is rare. In a country the size of India that produces a particular
+          kind of isolation: patients scattered across states, most of them
+          having never met another person with the condition, often diagnosed
+          only after years of being told their anaemia was something else.
+        </p>
+        <p>
+          Meanwhile the medical picture has changed dramatically. Treatments now
+          exist that were unimaginable two decades ago. But the distance between
+          a treatment existing and a patient in India actually receiving it is
+          made up of diagnosis delays, specialist availability, cost, and
+          knowing which door to knock on. Closing that distance is what this
+          organisation is for.
+        </p>
+
+        <div class="todo-note">
+          TODO (Foundation): replace the section above with the Foundation's own
+          founding story — who started it, when, and what prompted it. A
+          first-person account from a patient or family member is the single most
+          persuasive thing on a rare disease website. Keep it specific.
+        </div>
+
+        <h2>Our mission</h2>
+        <p class="mission">
+          To ensure that every person living with PNH in India is diagnosed
+          promptly, treated appropriately, and never has to face the condition
+          alone.
+        </p>
+
+        <h2>What we believe</h2>
+      </div>
+
+      <div class="grid grid--3" style="margin-top: 1.5rem;">
+        <div class="card">
+          <h3>Patients lead</h3>
+          <p>
+            The people who live with PNH understand it in ways no one else can.
+            Their experience should shape what we do and how we speak.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Accuracy over reassurance</h3>
+          <p>
+            We would rather tell someone something difficult and true than
+            something comforting and vague. Patients make better decisions with
+            honest information.
+          </p>
+        </div>
+        <div class="card">
+          <h3>No one is too far away</h3>
+          <p>
+            Support should not depend on living in a metro or knowing the right
+            people. Rarity already isolates; geography should not add to it.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Dignity as standard</h3>
+          <p>
+            Rare disease patients are used to being disbelieved, rushed, and
+            talked over. Being taken seriously should not be exceptional.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Openness</h3>
+          <p>
+            We say what we do, what we cannot do, and where our funding comes
+            from. Trust in a health organisation has to be earned in public.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Working with clinicians</h3>
+          <p>
+            We are not a substitute for medical care and never position
+            ourselves as one. We work best in partnership with treating teams.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {
+    team.length > 0 && (
+      <section class="section section--muted">
+        <div class="container">
+          <div class="prose">
+            <h2>The people behind the Foundation</h2>
+          </div>
+          <div class="grid grid--3" style="margin-top: 1.5rem;">
+            {team.map((person) => (
+              <div class="card">
+                <h3>{person.name}</h3>
+                <p class="role">{person.role}</p>
+                <p>{person.bio}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="section section--muted">
+    <div class="container">
+      <div class="prose">
+        <h2>Governance and transparency</h2>
+        <p>
+          We think an organisation asking for public trust — and eventually
+          public money — should be straightforward about how it is constituted
+          and how it is funded.
+        </p>
+
+        <div class="todo-note">
+          TODO (Foundation): this section should carry the legal entity type
+          (trust / society / Section 8 company), registration number, the names
+          of trustees or board members, and 12A/80G status once granted. Fill
+          these into src/site.ts. Add annual reports and financial statements
+          here as they are produced. Do not publish any registration or tax
+          status that is not yet actually in hand.
+        </div>
+
+        {
+          !site.registration.entityType && (
+            <p class="prose">
+              <em>
+                Registration and governance details will be published here once
+                confirmed.
+              </em>
+            </p>
+          )
+        }
+
+        <div class="btn-row">
+          <a href={url('/what-we-do')} class="btn btn--secondary">See our work</a>
+          <a href={url('/contact')} class="btn btn--secondary">Contact us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .mission {
+    font-size: clamp(1.15rem, 1.05rem + 0.5vw, 1.4rem);
+    font-weight: 550;
+    color: var(--brand);
+    border-left: 4px solid var(--brand);
+    padding-left: 1.1rem;
+    line-height: 1.5;
+  }
+
+  .role {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: -0.4rem;
+  }
+</style>

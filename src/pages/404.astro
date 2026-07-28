@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import { url } from '../lib/url';
+---
+
+<Base title="Page not found" description="The page you were looking for could not be found.">
+  <section class="section">
+    <div class="container">
+      <div class="prose notfound">
+        <span class="eyebrow">404</span>
+        <h1>We couldn't find that page</h1>
+        <p class="lede">
+          The link may be out of date, or the page may have moved. Here are the
+          places people usually need.
+        </p>
+        <ul>
+          <li><a href={url('/about-pnh')}>What is PNH?</a></li>
+          <li><a href={url('/patient-support')}>Support for patients and families</a></li>
+          <li><a href={url('/what-we-do')}>What we do</a></li>
+          <li><a href={url('/contact')}>Contact us</a></li>
+        </ul>
+        <div class="btn-row">
+          <a href={url('/')} class="btn btn--primary">Back to the home page</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .notfound { padding-block: clamp(1rem, 5vw, 3rem); }
+</style>

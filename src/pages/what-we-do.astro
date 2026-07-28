@@ -1,0 +1,153 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHeader from '../components/PageHeader.astro';
+import { url } from '../lib/url';
+
+const description =
+  'How PNH India Foundation works: patient information, peer support, help with access to diagnosis and treatment, clinician awareness, and rare disease policy advocacy in India.';
+
+const programmes = [
+  {
+    title: 'Information and education',
+    summary:
+      'Clear, accurate, plain-language information about PNH for patients and families.',
+    detail: [
+      'Most PNH information online is written either for clinicians or for a different healthcare system. We produce material that a person in India, newly diagnosed and frightened, can actually use.',
+      'This includes explanations of the condition and its treatment, questions to take to appointments, and guidance on navigating the health system.',
+    ],
+  },
+  {
+    title: 'Peer support',
+    summary:
+      'Connecting patients and caregivers with others who understand the condition from the inside.',
+    detail: [
+      'PNH is rare enough that most patients have never met another person with it. That isolation is one of the heaviest parts of the diagnosis, and it is the part we can do the most about.',
+      'We connect patients and caregivers with one another, in whatever form suits them — one-to-one introductions, group conversations, or simply someone to message.',
+    ],
+  },
+  {
+    title: 'Access to diagnosis and treatment',
+    summary:
+      'Practical help getting diagnosed, getting to the right specialist, and dealing with the cost of care.',
+    detail: [
+      'Getting a PNH diagnosis in India can take years, and getting treated can be harder still. We help patients find haematologists with PNH experience, understand what testing they should have had, and navigate government rare disease provisions and assistance programmes.',
+      'We also document where the system is failing patients, because that evidence is what makes advocacy credible.',
+    ],
+  },
+  {
+    title: 'Clinician awareness',
+    summary:
+      'Helping doctors recognise PNH earlier, so patients are not lost in years of misdiagnosis.',
+    detail: [
+      'A patient with unexplained haemolytic anaemia, an unexplained clot in an unusual site, or unexplained cytopenias should prompt a PNH test. Many do not, simply because the condition never comes to mind.',
+      'We work to put PNH on the differential — through awareness material for physicians and engagement with haematology networks.',
+    ],
+  },
+  {
+    title: 'Policy and advocacy',
+    summary:
+      'Representing PNH patients in conversations about rare disease policy in India.',
+    detail: [
+      'Rare disease patients in India face a structural problem: therapies exist, but access to them is limited and uneven. Decisions about funding and provision are made in rooms where patients are rarely present.',
+      'We work to make sure the PNH patient perspective is represented in those conversations, and that policy is informed by what patients actually experience.',
+    ],
+  },
+];
+---
+
+<Base title="What We Do" description={description}>
+  <PageHeader
+    eyebrow="Our work"
+    title="What we do"
+    lede="PNH is rare enough that patients often end up better informed about it than the first doctors they meet. Our work is aimed squarely at closing that gap — in the clinic, in the household, and in policy."
+  />
+
+  <section class="section">
+    <div class="container">
+      <div class="programmes">
+        {
+          programmes.map((p) => (
+            <article class="programme">
+              <div class="programme-head">
+                <h2>{p.title}</h2>
+                <p class="programme-summary">{p.summary}</p>
+              </div>
+              <div class="programme-body">
+                {p.detail.map((para) => (
+                  <p>{para}</p>
+                ))}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+
+      <div class="prose" style="margin-top: 3rem;">
+        <div class="todo-note">
+          TODO (Foundation): once the organisation has an activity history, add a section
+          here with concrete outcomes — patients supported, awareness sessions
+          held, submissions made. Specific numbers with dates build far more
+          trust than descriptions of intent, and funders will ask for them.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--brand-soft">
+    <div class="container cta-band">
+      <div class="prose">
+        <h2>Any of this useful to you?</h2>
+        <p>
+          Whether you are a patient, a caregiver, a clinician, or someone who
+          wants to help — we would like to hear from you.
+        </p>
+      </div>
+      <div class="btn-row">
+        <a href={url('/contact')} class="btn btn--primary">Get in touch</a>
+        <a href={url('/support-us')} class="btn btn--secondary">Support our work</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .programmes {
+    display: grid;
+    gap: 0;
+  }
+
+  .programme {
+    display: grid;
+    gap: 0.5rem 3rem;
+    padding-block: clamp(1.75rem, 4vw, 2.5rem);
+    border-top: 1px solid var(--border);
+  }
+  .programme:first-child { border-top: 0; padding-top: 0; }
+
+  @media (min-width: 58rem) {
+    .programme { grid-template-columns: 1fr 1.35fr; }
+  }
+
+  .programme h2 {
+    font-size: clamp(1.3rem, 1.15rem + 0.7vw, 1.65rem);
+    margin-bottom: 0.3em;
+  }
+
+  .programme-summary {
+    color: var(--brand);
+    font-weight: 550;
+    margin-bottom: 0;
+  }
+
+  .programme-body > :last-child { margin-bottom: 0; }
+
+  .cta-band {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+  }
+  @media (min-width: 55rem) {
+    .cta-band { grid-template-columns: 1.6fr auto; }
+    .cta-band .btn-row { margin-top: 0; }
+  }
+</style>

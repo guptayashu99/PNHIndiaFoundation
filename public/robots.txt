@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO(custom domain): update this to the real domain when one is attached.
+Sitemap: https://guptayashu99.github.io/PNHIndiaFoundation/sitemap-index.xml
